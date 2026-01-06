@@ -1,75 +1,75 @@
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import React from "react";
-import { Button } from "../ui/button";
-import { File, Github, Linkedin } from "lucide-react";
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import React from 'react';
+import { Button } from '../ui/button';
+import { File, Github, Linkedin } from 'lucide-react';
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { usePreloader } from "../preloader";
-import { BlurIn, BoxReveal } from "../reveal-animations";
-import ScrollDownIcon from "../scroll-down-icon";
-import { SiGithub, SiLinkedin } from "react-icons/si";
-import { config } from "@/data/config";
+} from '@/components/ui/tooltip';
+import { usePreloader } from '../preloader';
+import { BlurIn, BoxReveal } from '../reveal-animations';
+import ScrollDownIcon from '../scroll-down-icon';
+import { SiGithub, SiLinkedin } from 'react-icons/si';
+import { config } from '@/data/config';
 
 const HeroSection = () => {
   const { isLoading } = usePreloader();
 
   return (
-    <section id="hero" className={cn("relative w-full h-screen")}>
-      <div className="">
+    <section id='hero' className={cn('relative w-full h-screen')}>
+      <div className=''>
         <div
           className={cn(
-            "h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]",
-            "col-span-1",
-            "flex flex-col justify-start md:justify-center items-center md:items-start",
-            "pt-28 sm:pt-0 sm:pb-32 md:p-24 lg:p-40 xl:p-48"
+            'h-[calc(100dvh-3rem)] md:h-[calc(100dvh-4rem)] z-[2]',
+            'col-span-1',
+            'flex flex-col justify-start md:justify-center items-center md:items-start',
+            'pt-28 sm:pt-0 sm:pb-32 md:p-24 lg:p-40 xl:p-48'
           )}
         >
           {!isLoading && (
             <>
-              <div className="">
+              <div className=''>
                 <BlurIn delay={0.7}>
                   <p
                     className={cn(
-                      "md:self-start mt-4 font-bold text-md text-slate-500 dark:text-zinc-400 ml-3",
-                      "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      'md:self-start mt-4 font-bold text-md text-slate-500 dark:text-zinc-400 ml-3',
+                      'cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text '
                     )}
                   >
                     ⭐️ 25.01.08 ~
-                    <br className="md:hidden" />
+                    <br className='md:hidden' />
                   </p>
                 </BlurIn>
                 <BlurIn delay={1}>
                   <h1
                     className={cn(
-                      "font-bold mt-2 text-5xl text-transparent text-slate-800 ml-3 text-left",
-                      "cursor-default text-edge-outline font-display sm:text-7xl md:text-9xl "
+                      'font-bold mt-2 text-5xl text-transparent text-slate-800 ml-3 text-left',
+                      'cursor-default text-edge-outline font-display sm:text-7xl md:text-9xl '
                     )}
                   >
                     우리의 첫 번째 해
-                    <br className="md:block hiidden" />
+                    <br className='md:block hiidden' />
                   </h1>
                 </BlurIn>
                 <BlurIn delay={1.2}>
                   <p
                     className={cn(
-                      "md:self-start mt-2 md:mt-6 font-bold text-md text-slate-500 dark:text-zinc-400 ml-3",
-                      "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      'md:self-start mt-2 md:mt-6 font-bold text-md text-slate-500 dark:text-zinc-400 ml-3',
+                      'cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text '
                     )}
                   >
-                    굳이 이유 없어도 좋았던 날들
+                    행복하고 즐거웠던 우리의 일년
                   </p>
                 </BlurIn>
               </div>
             </>
           )}
         </div>
-        <div className="grid col-span-1"></div>
+        <div className='grid col-span-1'></div>
       </div>
-      <div className="absolute bottom-10 left-[50%] translate-x-[-50%]">
+      <div className='absolute bottom-10 left-[50%] translate-x-[-50%]'>
         <ScrollDownIcon />
       </div>
     </section>
