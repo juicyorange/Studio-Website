@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { useState, useRef } from "react";
-import Lottie from "lottie-react";
-import giftBoxAnimation from "/public/assets/GiftBox.json";
+import { Button } from '@/components/ui/button';
+import { useState, useRef } from 'react';
+import Lottie from 'lottie-react';
+import giftBoxAnimation from '/public/assets/GiftBox.json';
 import confetti from 'canvas-confetti';
 import { BlurIn } from './reveal-animations';
-import { cn } from "@/lib/utils";
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 const LottieGiftBox = () => {
   const lottieRef = useRef<any>(null);
@@ -14,7 +15,6 @@ const LottieGiftBox = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const triggerConfetti = (event: React.MouseEvent) => {
-
     // Lottie 애니메이션 천천히 사라지기
     setIsVisible(false);
     setIsOpen(true);
@@ -24,7 +24,7 @@ const LottieGiftBox = () => {
     const y = (event.clientY - rect.top) / rect.height;
 
     const heart = confetti.shapeFromText({
-      text: '❤️'
+      text: '❤️',
     });
 
     const defaults = {
@@ -34,7 +34,7 @@ const LottieGiftBox = () => {
       decay: 0.94,
       startVelocity: 30,
       origin: { x, y }, // 클릭한 위치에서 시작
-      colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8']
+      colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8'],
     };
 
     // 첫 번째 confetti (하트 모양)
@@ -42,7 +42,7 @@ const LottieGiftBox = () => {
       ...defaults,
       particleCount: 60,
       scalar: 2,
-      shapes: [heart]
+      shapes: [heart],
     });
 
     // 두 번째 confetti (하트 모양, 다른 크기)
@@ -50,7 +50,7 @@ const LottieGiftBox = () => {
       ...defaults,
       particleCount: 40,
       scalar: 3,
-      shapes: [heart]
+      shapes: [heart],
     });
 
     // 세 번째 confetti (원형)
@@ -58,9 +58,8 @@ const LottieGiftBox = () => {
       ...defaults,
       particleCount: 10,
       scalar: 0.75,
-      shapes: ['circle']
+      shapes: ['circle'],
     });
-
   };
 
   const resetGift = () => {
@@ -69,60 +68,57 @@ const LottieGiftBox = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className='flex flex-col items-center gap-4'>
       <div className='relative w-64 h-64 flex justify-center items-center'>
-      <div className="absolute w-64 h-64 cursor-pointer transition-opacity duration-2000 ease-in-out flex justify-center items-center">
-      {
-        isOpen && (
-          <>
-            <BlurIn delay={1}>
-                  <h1
-                    className={cn(
-                      "font-bold mt-2 text-3xl text-transparent text-slate-800 ml-3 text-left",
-                      "cursor-default text-edge-outline font-display"
-                    )}
-                  >
-                    청람으로 ^__^
-                  </h1>
-                </BlurIn>
-          </>
-        )
-      }
-      </div>
-            {/* Lottie 애니메이션 */}
-            <div 
-        className="absolute w-64 h-64 cursor-pointer transition-opacity duration-2000 ease-in-out"
-        style={{ 
-          opacity: isVisible ? 1 : 0,
-          transition: 'opacity 2s ease-in-out'
-        }}
-      >
-        <Lottie
-          lottieRef={lottieRef}
-          animationData={giftBoxAnimation}
-          loop={true}
-          autoplay={true}
-          onClick={triggerConfetti}
-          style={{ cursor: 'pointer' }}
-        />
-      </div>
+        <div className='absolute w-64 h-64 cursor-pointer transition-opacity duration-2000 ease-in-out flex justify-center items-center'>
+          {isOpen && (
+            <>
+              <BlurIn delay={1}>
+                <Image
+                  src={'/assets/memory/gift.png'}
+                  width={250}
+                  height={250}
+                  className='my-32 w-full h-auto object-cover'
+                  alt={'Image'}
+                  // priority={true}
+                />
+              </BlurIn>
+            </>
+          )}
+        </div>
+        {/* Lottie 애니메이션 */}
+        <div
+          className='absolute w-64 h-64 cursor-pointer transition-opacity duration-2000 ease-in-out'
+          style={{
+            opacity: isVisible ? 1 : 0,
+            transition: 'opacity 2s ease-in-out',
+          }}
+        >
+          <Lottie
+            lottieRef={lottieRef}
+            animationData={giftBoxAnimation}
+            loop={true}
+            autoplay={true}
+            onClick={triggerConfetti}
+            style={{ cursor: 'pointer' }}
+          />
+        </div>
       </div>
       {/* Reset 버튼 */}
       {!isVisible && (
         <>
-        에-게?  이게 다라고?
-        
-        <Button 
-          onClick={resetGift}
-          variant="outline"
-          className="border-2 border-gray-300 hover:bg-gray-100 transition-all duration-300"
-        >
-          다시보기.
-        </Button>
+          선물을 지히가 이미 먹어버렸어요,,
+          <Button
+            onClick={resetGift}
+            variant='outline'
+            className='border-2 border-gray-300 hover:bg-gray-100 transition-all duration-300'
+          >
+            다시보기.
+          </Button>
         </>
       )}
     </div>
   );
 };
 
-export default LottieGiftBox; 
+export default LottieGiftBox;

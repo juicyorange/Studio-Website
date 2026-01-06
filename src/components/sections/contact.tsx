@@ -32,7 +32,7 @@ const ContactSection = () => {
         <Card className='min-w-7xl bg-white/70 dark:bg-black/70 backdrop-blur-sm rounded-xl mt-10 md:mt-20'>
           <CardHeader>
             <CardTitle className='text-4xl'>선물</CardTitle>
-            <CardDescription>송지히 너만 눌러봐</CardDescription>
+            <CardDescription>{'<경고> 송지희만 누르시오'}</CardDescription>
           </CardHeader>
           <CardContent>
             <LottieGiftBox />
