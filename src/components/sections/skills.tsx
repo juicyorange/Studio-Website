@@ -21,7 +21,7 @@ const SkillsSection = () => {
           </BoxReveal>
         </Link>
         <p className='mx-auto mt-4 line-clamp-4 max-w-3xl font-normal text-base text-center text-neutral-300'>
-          (힌트 : 키보드는 어떻게 해야할까?)
+          (힌트 : 키보드 눌러봐)
         </p>
       </div>
     </section>

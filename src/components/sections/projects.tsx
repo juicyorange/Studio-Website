@@ -49,7 +49,7 @@ const Modall = ({ project }: { project: Project }) => {
           className='absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all'
           src={project.src}
           alt={project.title}
-          unoptimized
+          // unoptimized
           width={300}
           height={300}
         />

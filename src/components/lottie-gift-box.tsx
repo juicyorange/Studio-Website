@@ -107,11 +107,11 @@ const LottieGiftBox = () => {
       {/* Reset 버튼 */}
       {!isVisible && (
         <>
-          선물을 지히가 이미 먹어버렸어요,,
+          선물은 지히가 먹었어요!
           <Button
             onClick={resetGift}
             variant='outline'
-            className='border-2 border-gray-300 hover:bg-gray-100 transition-all duration-300'
+            className='border-2 z-50 border-gray-300 hover:bg-gray-100 transition-all duration-300'
           >
             다시보기.
           </Button>
